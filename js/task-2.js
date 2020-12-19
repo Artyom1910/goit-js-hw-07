@@ -1,5 +1,3 @@
-
-
 const ingredients = [
   'Картошка',
   'Грибы',
@@ -8,12 +6,16 @@ const ingredients = [
   'Зелень',
   'Приправы',
 ];
-let ulList = document.getElementById('ingredients');
-const foodIngredients = ingredients.forEach(ingredient => {
-  let items = document.createElement('li');
-  items.innerHTML = ingredient;
-  ulList.append(items);
-  parent.append(...items);
-});
 
-console.log(foodIngredients);
+const ingredientslistRef = document.querySelector('#ingredients');
+console.log(ingredientslistRef);
+const createIngredient = ingredient => {
+  const listItemRef = document.createElement('li');
+  listItemRef.textContent = ingredient;
+  return listItemRef;
+};
+const ingredientItemRef = ingredients.map(ingredient =>
+  createIngredient(ingredient),
+);
+// console.log(ingredientItemRef);
+ingredientslistRef.append(...ingredientItemRef);
